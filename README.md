@@ -214,7 +214,7 @@ The following are some other commonly configured environment variables:
 
 ```Bash
 export PS1=">>"  # Changes the default command prompt to >>
-export HOME="path" # The home directory path can be changed, if necessary
+export HOME="path"  # The home directory path can be changed, if necessary
 export PATH="path" 
 # Contains all directories which contain command line scripts.
 # In advanced cases we can edit this if we add our own scripts.
