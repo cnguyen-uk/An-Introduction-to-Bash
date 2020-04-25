@@ -144,7 +144,7 @@ grep -Rl word directory/  # The -Rl option returns only filenames
 The `sed` (stream editor) command modifies stdin based on an expression, then returns this as output. It is similar to “find and replace” but is more powerful when used with regular expressions.
 
 ```Bash
-sed s/word/replace/g  file.txt
+sed s/word/replace/g file.txt
 # Substitutes "word" with "replace", globally
 ```
 
