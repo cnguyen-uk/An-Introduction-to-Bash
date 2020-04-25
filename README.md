@@ -137,8 +137,8 @@ grep -i word file.txt  # The -i option enables case insensitivity
 The command can also be used on a directory to return files which contain matches. 
 
 ```Bash
-grep -R directory/  # The -R option returns filenames with lines
-grep -Rl directory/  # The -Rl option returns only filenames
+grep -R word directory/  # The -R option returns filenames with lines
+grep -Rl word directory/  # The -Rl option returns only filenames
 ```
 
 The `sed` (stream editor) command modifies stdin based on an expression, then returns this as output. It is similar to “find and replace” but is more powerful when used with regular expressions.
