@@ -20,7 +20,7 @@ Throughout, note that file or directory arguments for commands can also be repla
 
 ## File System Navigation
 
-Here are some common navigation commands.
+Here are some common navigation commands:
 
 ```Bash
 ls  # Lists the files and folders inside the current directory
@@ -281,7 +281,7 @@ Note that arithmetic in bash scripting uses the following syntax:
 variable=$((variable + 7))
 ```
 
-There are three different loops: `for`, `while`, `until`.
+There are three different loops: `for`, `while` and `until`.
 
 ```Bash
 for word in $paragraph
