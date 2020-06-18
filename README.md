@@ -116,7 +116,7 @@ The `|` operator “pipes” the stdout of the left to a command on the right, w
 ```Bash
 cat hello.txt | wc | cat > count.txt
 # The file count.txt contains “1 3 20”. Note that without piping,
-#the wc command will output the word count and the filename.
+# the wc command will output the word count and the filename.
 cat hello.txt | wc > count.txt  # Alternate way of doing the above
 ```
 
@@ -272,7 +272,7 @@ For strings, the comparison operators are: `==`, `!=`. The logical operators are
 For string comparisons, it is best practice to use double quotation marks to prevent errors in the case of spaces or null values.
 
 ```Bash
-if [ "$word1" == "$word2" ]  # Checking if these strings are equal
+if [ "$word1" == "$word2" ]  # Checks if these strings are equal
 ```
 
 Note that arithmetic in bash scripting uses the following syntax:
