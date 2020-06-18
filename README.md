@@ -3,7 +3,7 @@
 
 The command line is a text interface which takes in commands for the computer’s operating system to run. It can be used to work through files and folders on the computer, run programs, and write powerful scripts to automate tasks. Bash (or shell) scripting is a great way to execute frequently used sets of commands.
 
-The commands here are for unix-based systems, but most of them will also work in Windows Powershell.
+The commands here are for unix-based systems, but most of them will also work in Windows PowerShell.
 
 This guide is far from comprehensive and does not aim to be. Although not necessary, it will be helpful to be familiar in at least one programming language, especially for the [Bash Scripting](#bash-scripting) section.
 
