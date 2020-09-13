@@ -100,9 +100,10 @@ The `>>` operator redirects the stdout of the left to a file on the right, which
 
 ```Bash
 echo "Goodbye" >> greet.txt
-# The file greet.txt contains "Hello Goodbye"
+# The file greet.txt now contains "Hello Goodbye"
+
 cat greet.txt >> hello.txt
-# The file hello.txt contains "Hello Hello Goodbye"
+# The file hello.txt now contains "Hello Hello Goodbye"
 ```
 
 The `<` operator redirects the file on the right as the stdin of the command on the left. This is useful in situations where a program requires user input but testing by the usual stdin is tedious. Instead, we can use a file containing the test input as the stdin through the `<` operator. Moreover, it allows for the testing of all of the input at once.
