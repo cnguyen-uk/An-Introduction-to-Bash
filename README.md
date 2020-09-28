@@ -74,9 +74,9 @@ rm -r directory/  # Uses recursion to remove a directory completely
 Operators can be used to redirect the input and output (I/O) of a command to and from other files and programs, or even to chain commands together in a pipeline.
 
 The three I/O connections are:
--	Standard input (*stdin*): the source for a command, such user keyboard input into the terminal. Note that this is not the same as the arguments accepted by a command.
--	Standard output (*stdout*): the output of a command.
--	Standard error (*stderr*): an error message outputted by a failed command.
+- Standard input (*stdin*): the source for a command, such user keyboard input into the terminal. Note that this is not the same as the arguments accepted by a command.
+- Standard output (*stdout*): the output of a command.
+- Standard error (*stderr*): an error message outputted by a failed command.
 
 The following commands will be useful for redirection:
 
@@ -232,9 +232,9 @@ env | grep PATH  # Returns the value of the PATH variable
 
 Any command that can be run in the terminal can be run in a bash script. As with any programming language, there are conventions to follow:
 
--	Bash scripts have `.sh` as their file extension.
--	The beginning of each script file should start with `#!/bin/bash` on its own line. This tells the computer to use bash as the interpreter.
--	Script files should be placed in the `~/bin/` directory, as a matter of good practice. (We may need to add this directory to the `PATH` variable by adding `PATH=~/bin:$PATH` to the bash profile configuration file.)
+- Bash scripts have `.sh` as their file extension.
+- The beginning of each script file should start with `#!/bin/bash` on its own line. This tells the computer to use bash as the interpreter.
+- Script files should be placed in the `~/bin/` directory, as a matter of good practice. (We may need to add this directory to the `PATH` variable by adding `PATH=~/bin:$PATH` to the bash profile configuration file.)
 
 We also need to give script files the “execute” permission.
 
@@ -259,12 +259,12 @@ Conditionals use the following syntax (ensure that the spacing for square bracke
 ```Bash
 if [ condition1 ]
 then
-  statement1
+    statement1
 elif [ condition2 ]
 then
-  statement2
+    statement2
 else
-  statement3
+    statement3
 fi
 ```
 
@@ -287,21 +287,21 @@ There are three different loops: `for`, `while` and `until`.
 ```Bash
 for word in $paragraph
 do
-  statement
+    statement
 done
 ```
 
 ```Bash
 while [ condition ]
 do
-  statement
+    statement
 done
 ```
 
 ```Bash
 until [ condition ]
 do
-  statement
+    statement
 done
 ```
 
