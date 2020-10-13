@@ -1,7 +1,7 @@
 # An Introduction to Bash
 *A compact introduction to using Bash.*
 
-The command line is a text interface which takes in commands for the computer’s operating system to run. It can be used to work through files and folders on the computer, run programs, and write powerful scripts to automate tasks. Bash (or shell) scripting is a great way to execute frequently used sets of commands.
+The command line is a text interface which takes in commands for the computer's operating system to run. It can be used to work through files and folders on the computer, run programs, and write powerful scripts to automate tasks. Bash (or shell) scripting is a great way to execute frequently used sets of commands.
 
 The commands here are for Unix-based systems, but most of them will also work in Windows PowerShell.
 
@@ -23,20 +23,20 @@ Throughout, note that file or directory arguments for commands can also be repla
 Here are some common navigation commands:
 
 ```Bash
-ls  # Lists the files and folders inside the current directory
-ls -a  # Option to list all contents, including hidden contents
-ls -l  # Option to list all contents in long format
-ls -t  # Option to order files and directories by modified time
-ls -alt  # Options can be combined
+ls  # List the files and folders inside the current directory
+ls -a  # Flag option to list all contents, including hidden contents
+ls -l  # Flag option to list all contents in long format
+ls -t  # Flag option to order files and directories by modified time
+ls -alt  # Combine flag options
 ```
 
 ```Bash
-pwd # Prints the working directory
+pwd  # Print the working directory
 ```
 
 ```Bash
-cd directory/  # Changes directory
-cd ..  # Moves up one directory
+cd directory/  # Change directory
+cd ..  # Move up one directory
 ```
 
 ## File System Manipulation
@@ -44,29 +44,29 @@ cd ..  # Moves up one directory
 Commands can be used to copy, move and remove files and directories.
 
 ```Bash
-mkdir directory_name  # Makes a directory in the current directory
+mkdir directory_name  # Make a directory in the current directory
 ```
 
 ```Bash
-touch file_name.ext  # Creates a new file in the current directory
+touch file_name.ext  # Create a new file in the current directory
 ```
 
 ```Bash
-cp file file_copy  # Destructively copies file to file_copy
-cp file1 file2 destination_directory/  # Copies file1 and file2
-cp * destination_directory/  # Wildcard to copy all files
-cp m*.txt destination_directory/  # Typical wildcard usage
+cp file file_copy  # Destructively copy file to file_copy
+cp file1 file2 destination_directory/  # Copy file1 and file2
+cp * destination_directory/  # Use wildcard to copy all files
+cp m*.txt destination_directory/  # Use wildcard to copy certain files
 ```
 
 ```Bash
-mv file1 file2  # Renames file1 to file2 (destroys if file2 exists)
-mv file1 file2 destination_directory/  # Moves file1 and file2
-# Typical wildcard usage can also be used to move, similar to cp.
+mv file1 file2  # Rename file1 to file2 (destroy file2 if it exists)
+mv file1 file2 destination_directory/  # Move file1 and file2
+# Typical wildcard usage can also be utilised to move, similar to cp.
 ```
 
 ```Bash
-rm file  # Permanently removes a file
-rm -r directory/  # Uses recursion to remove a directory completely
+rm file  # Permanently remove file
+rm -r directory/  # Use recursion to remove directory completely
 ```
 
 ## Redirection
@@ -81,29 +81,27 @@ The three I/O connections are:
 The following commands will be useful for redirection:
 
 ```Bash
-echo "Hello"  # Outputs to the terminal the string used as the input
+echo "Hello"  # Output to the terminal the string used as the input
 ```
 
 ```Bash
-cat file  # Outputs to the terminal the contents of a file
-cat file1 file2  # Outputs the concatenation of the files
+cat file  # Output to the terminal the contents of file
+cat file1 file2  # Output the concatenation of file1 and file2
 ```
 
 The `>` operator redirects the stdout of the left to a file on the right, which gets overwritten.
 
 ```Bash
-echo "Hello" > hello.txt  # The file hello.txt contains "Hello"
-cat hello.txt > greet.txt  # The file greet.txt contains "Hello"
+echo "Hello" > hello.txt  # File hello.txt contains: Hello
+cat hello.txt > greet.txt  # File greet.txt contains: Hello
 ```
 
 The `>>` operator redirects the stdout of the left to a file on the right, which gets appended to.
 
 ```Bash
-echo "Goodbye" >> greet.txt
-# The file greet.txt now contains "Hello Goodbye"
+echo "Goodbye" >> greet.txt  # File greet.txt contains: Hello Goodbye
 
-cat greet.txt >> hello.txt
-# The file hello.txt now contains "Hello Hello Goodbye"
+cat greet.txt >> hello.txt  # File hello.txt contains: Hello Hello Goodbye
 ```
 
 The `<` operator redirects the file on the right as the stdin of the command on the left. This is useful in situations where a program requires user input but testing by the usual stdin is tedious. Instead, we can use a file containing the test input as the stdin through the `<` operator. Moreover, it allows for the testing of all of the input at once.
@@ -112,13 +110,13 @@ The `<` operator redirects the file on the right as the stdin of the command on 
 program < test_input.txt
 ```
 
-The `|` operator “pipes” the stdout of the left to a command on the right, which takes it as the stdin. Multiple | operators can be chained together.
+The `|` operator "pipes" the stdout of the left to a command on the right, which takes it as the stdin. Multiple | operators can be chained together.
 
 ```Bash
-cat hello.txt | wc | cat > count.txt
-# The file count.txt contains “1 3 20”. Note that without piping,
-# the wc command will output the word count and the filename.
-cat hello.txt | wc > count.txt  # Alternate way of doing the above
+cat hello.txt | wc | cat > count.txt  # The file count.txt contains: 1 3 20
+# Note that without piping, the wc command will output the word count
+# and the filename.
+cat hello.txt | wc > count.txt  # Do the above, but in an alternate way
 ```
 
 Two common commands to pipe together are `sort`, which takes a file as its stdin and orders it alphabetically as its stdout; and `uniq`, which takes a file as its stdin and filters out adjacent, duplicate lines as its stdout.
@@ -132,21 +130,20 @@ sort file.txt | uniq > unique_file.txt
 The `grep` (global regular expression print) command searches files for lines that match a pattern and returns the results.
 
 ```Bash
-grep -i word file.txt  # The -i option enables case insensitivity
+grep -i word file.txt  # Enable case insensitivity, via -i flag option
 ```
 
 The command can also be used on a directory to return files which contain matches. 
 
 ```Bash
-grep -R word directory/  # The -R option returns filenames with lines
-grep -Rl word directory/  # The -Rl option returns only filenames
+grep -R word directory/  # Return filenames with lines, via -R flag option
+grep -Rl word directory/  # Return only filenames, via -Rl flag option
 ```
 
-The `sed` (stream editor) command modifies stdin based on an expression, then returns this as output. It is similar to “find and replace” but is more powerful when used with regular expressions.
+The `sed` (stream editor) command modifies stdin based on an expression, then returns this as output. It is similar to "find and replace" but is more powerful when used with regular expressions.
 
 ```Bash
-sed s/word/replace/g file.txt
-# Substitutes "word" with "replace", globally
+sed s/word/replace/g file.txt  # Substitute word with replace, globally
 ```
 
 The `less` command is similar to the `cat` command but is better suited for handling larger files. It displays files in the terminal one page at a time. It can also be configured within a bash profile (discussed later on) through the `LESS` environment variable. Setting it equal to the `"-N"` option will add line numbers to the file.
@@ -180,14 +177,14 @@ Each terminal session is loaded with settings and preferences that form the comm
 One way to modify the environment is through a command line text editor, such as nano (or notepad on Windows).
 
 ```Bash
-nano file.txt  # Opens nano and opens or creates file.txt
+nano file.txt  # Open nano, and open or create file.txt
 ```
 
 The bash profile, a file which stores environment settings, is called `~/.bash_profile`. The contents of this will be loaded at the start of every session. Modifications typically follow the following lines of command:
 
 ```Bash
-nano ~/.bash_profile  # Opens the bash profile for modification
-source ~/.bash_profile  # Makes changes available for this session
+nano ~/.bash_profile  # Open the bash profile for modification
+source ~/.bash_profile  # Make changes available for this session
 ```
 
 Within the bash profile, we can make various modifications, which we discuss below, all of which are implicitly done in the `~/.bash_profile` file itself (and not the terminal session).
@@ -195,8 +192,8 @@ Within the bash profile, we can make various modifications, which we discuss bel
 The `alias` command allows for the creation of aliases for commands. We must use the following syntax (including no spaces), otherwise an error will be thrown:
 
 ```Bash
-alias pd="pwd"  # Now pd can be used to print working directory
-alias ll="ls -la"  # Now ll can be used as a shortcut for ls -la
+alias pd="pwd"  # Enable pd to be used to print working directory
+alias ll="ls -la"  # Enable ll to be used as a shortcut for ls -la
 ```
 
 The `export` command allows for the configuration of environment variables.
@@ -208,16 +205,16 @@ export USER="John Smith"
 If we want to check the value of a variable, we can echo the variable, prefixed with `$`. 
 
 ```Bash
-echo $USER  # Returns John Smith
+echo $USER  # Output to the terminal: John Smith
 ```
 
 The following are some other commonly configured environment variables:
 
 ```Bash
-export PS1=">>"  # Changes the default command prompt to >>
+export PS1=">>"  # Change the default command prompt to >>
 export HOME="path"  # The home directory path can be changed, if necessary
 export PATH="path" 
-# Contains all directories which contain command line scripts.
+# The above contains all directories containing command line scripts.
 # In advanced cases we can edit this if we add our own scripts.
 ```
 
@@ -225,7 +222,7 @@ The `env` (environment) command returns a list of all of the environment variabl
 
 ```Bash
 env  # This list will be quite long, but we can also use grep
-env | grep PATH  # Returns the value of the PATH variable
+env | grep PATH  # Use grep to return the value of the PATH variable
 ```
 
 ## Bash Scripting
@@ -236,7 +233,7 @@ Any command that can be run in the terminal can be run in a bash script. As with
 - The beginning of each script file should start with `#!/bin/bash` on its own line. This tells the computer to use bash as the interpreter.
 - Script files should be placed in the `~/bin/` directory, as a matter of good practice. (We may need to add this directory to the `PATH` variable by adding `PATH=~/bin:$PATH` to the bash profile configuration file.)
 
-We also need to give script files the “execute” permission.
+We also need to give script files the "execute" permission.
 
 ```Bash
 chmod +x script.sh
@@ -251,7 +248,7 @@ variable="value"
 To access the value of a variable, we prefix the variable name with the `$` operator.
 
 ```Bash
-echo $variable  # Returns "value" to the terminal
+echo $variable  # Output to the terminal: value
 ```
 
 Conditionals use the following syntax (ensure that the spacing for square brackets is as also as shown):
@@ -273,7 +270,7 @@ For strings, the comparison operators are: `==`, `!=`. The logical operators are
 For string comparisons, it is best practice to use double quotation marks to prevent errors in the case of spaces or null values.
 
 ```Bash
-if [ "$word1" == "$word2" ]  # Checks if these strings are equal
+if [ "$word1" == "$word2" ]  # Check if the two strings are equal
 ```
 
 Note that arithmetic in bash scripting uses the following syntax:
@@ -310,27 +307,28 @@ We can allow scripts to access external data. There are three main ways to do th
 The first is by using the `read` command, which prompts the user for input.
 
 ```Bash
-read number  # Saves the user’s input to the variable "number"
-read -p "Enter your age: " number  # Option to specify prompt text
+read number  # Save the user's input to the variable number
+read -p "Enter your age: " number  # Flag option to specify prompt text
 ```
 
 The second is by calling the script with input arguments.
 
 ```Bash
 script.sh arg1 arg2 arg3
-# Referenced positionally in the script using $1, $2, $3.
-# If any number of input arguments is allowed, then use $@.
+# The above arguments can be referenced positionally in the script
+# by using $1, $2, $3.  For any number of input arguments to be
+# allowed, use $@.
 ```
 
 The third way is by accessing external files.
 
 ```Bash
-files=/directory_path/*  # Accesses all files in directory_path
+files=/directory_path/*  # Access all files in directory_path
 ```
 
 For convenience, we can use our bash profile to create an alias for calling bash scripts.
 
 ```Bash
-alias short='./longname.sh'  # Now short calls the script
-alias short='./longname.sh "arg"'  # Including a first input
+alias short='./longname.sh'  # Enable short to call the script
+alias short='./longname.sh "arg"'  # Call the script with a first input
 ```
