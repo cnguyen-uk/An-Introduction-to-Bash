@@ -133,17 +133,17 @@ The `grep` (global regular expression print) command searches files for lines th
 grep -i regex file.txt  # Enable case insensitivity, via -i flag option
 ```
 
-The command can also be used on a directory to return files which contain matches. 
+The command can also be used on a directory to return files which contain regular expression matches.
 
 ```Bash
-grep -R word directory/  # Return filenames with lines, via -R flag option
-grep -Rl word directory/  # Return only filenames, via -Rl flag option
+grep -R regex directory/  # Return filenames with lines, via -R flag option
+grep -Rl regex directory/  # Return only filenames, via -Rl flag option
 ```
 
-The `sed` (stream editor) command modifies stdin based on an expression, then returns this as output. It is similar to "find and replace" but is more powerful when used with regular expressions.
+The `sed` (stream editor) command modifies stdin based on a regular expression, then returns this as output. It is similar to "find and replace" but is more powerful since regular expressions can be utilised.
 
 ```Bash
-sed s/word/replace/g file.txt  # Substitute word with replace, globally
+sed s/regex/replace/g file.txt  # Substitute regex with replace, globally
 ```
 
 The `less` command is similar to the `cat` command but is better suited for handling larger files. It displays files in the terminal one page at a time. It can also be configured within a bash profile (discussed later on) through the `LESS` environment variable. Setting it equal to the `"-N"` option will add line numbers to the file.
