@@ -127,10 +127,10 @@ sort file.txt | uniq > unique_file.txt
 
 ## Other Useful Commands
 
-The `grep` (global regular expression print) command searches files for lines that match a pattern and returns the results.
+The `grep` (global regular expression print) command searches files for lines that match a [regular expression](https://github.com/cnguyen-uk/An-Introduction-to-Regex) pattern and returns the results.
 
 ```Bash
-grep -i word file.txt  # Enable case insensitivity, via -i flag option
+grep -i regex file.txt  # Enable case insensitivity, via -i flag option
 ```
 
 The command can also be used on a directory to return files which contain matches. 
