@@ -251,7 +251,7 @@ To access the value of a variable, we prefix the variable name with the `$` oper
 echo $variable  # Output to the terminal: value
 ```
 
-Conditionals use the following syntax (ensure that the spacing for square brackets is as also as shown):
+Conditionals use the following syntax (ensure that the spacing for square brackets is also as shown):
 
 ```Bash
 if [ condition1 ]
