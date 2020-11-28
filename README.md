@@ -11,12 +11,68 @@ Throughout, note that file or directory arguments for commands can also be repla
 
 ## Table of Contents
 
+- [Code Standards](#code-standards)
+  * [Indentation](#indentation)
+  * [Comments](#comments)
+    + [Inline Comments](#inline-comments)
+    + [Block Comments](#block-comments)
+  * [Quotes](#quotes)
+  * [Names](#names)
 - [File System Navigation](#file-system-navigation)
 - [File System Manipulation](#file-system-manipulation)
 - [Redirection](#redirection)
 - [Other Useful Commands](#other-useful-commands)
 - [Environment](#environment)
 - [Bash Scripting](#bash-scripting)
+
+## Code Standards
+
+All written code should follow a style guide to ensure that standards are kept consistent across any codebase and make code easier to read. Badly written code is difficult to scale, optimise, and debug. Such is the importance of high code standards that this guide will discuss it as a separate section before any code is seen.
+
+We follow the standards in the [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html). In particular, this section will act as a reference for language-specific best practices for indentation, comments, quotes, and names, since these can vary across different programming languages.
+
+### Indentation
+
+The standard is to use two spaces for indented code.
+
+### Comments
+
+Comments begin with `#`.
+
+#### Inline Comments
+
+Inline comments should be used sparingly and not state the obvious. They should be separated by at least two spaces from the code and use commanding language rather than descriptive. For example, the following is preferred:
+
+```Bash
+x=$((x + 7))  # Compensate for border
+```
+
+As a comparison, the following should be avoided:
+
+```Bash
+x=$((x + 7))  # Compensates for border
+```
+
+#### Block Comments
+
+Block comments should be written in complete sentences, be indented with the code which it is commenting, and come *before* the code which it is commenting. Placing the comment after is merciless on a confused reader. Paragraphs are separated by a single line containing a single #, and multi-sentence comments should have two spaces after a sentence-ending period (except after the final sentence).
+
+```Bash
+# This script is called with an integer argument.  It does not check for valid input.
+#
+# It's quite a nice way to access external data.
+script.sh 7
+```
+
+### Quotes
+
+Strings can be wrapped in either double quotes `" "` or single quotes `' '`. Double quotes will honour [string interpolation](https://en.wikipedia.org/wiki/String_interpolation), whereas single quotes will not, i.e. they contain raw string literals.
+
+See the [Single Quotes](http://www.gnu.org/software/bash/manual/html_node/Single-Quotes.html) and [Double Quotes](http://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html) sections of the Bash Reference Manual for more details.
+
+### Names
+
+Constants and environment variable names should be written in uppercase, with any word separation done using an underscore `_`. All other names should be written in *snake_case*.
 
 ## File System Navigation
 
@@ -116,6 +172,9 @@ The `|` operator "pipes" the stdout of the left to a command on the right, which
 cat hello.txt | wc | cat > count.txt  # The file count.txt contains: 1 3 20
 # Note that without piping, the wc command will output the word count
 # and the filename.
+```
+
+```Bash
 cat hello.txt | wc > count.txt  # Do the above, but in an alternate way
 ```
 
@@ -213,9 +272,11 @@ The following are some other commonly configured environment variables:
 ```Bash
 export PS1=">>"  # Change the default command prompt to >>
 export HOME="path"  # The home directory path can be changed, if necessary
-export PATH="path" 
-# The above contains all directories containing command line scripts.
-# In advanced cases we can edit this if we add our own scripts.
+
+# This environment variable contains all directories containing command
+# line scripts.  In advanced cases we can edit this if we add our
+# own scripts.
+export PATH="path"
 ```
 
 The `env` (environment) command returns a list of all of the environment variables for the current user.
@@ -245,10 +306,10 @@ To declare a variable, we use the following syntax:
 variable="value"
 ```
 
-To access the value of a variable, we prefix the variable name with the `$` operator.
+To access the value of a variable, we wrap the variable in curly braces `{ }`, and prefix this with the `$` operator.
 
 ```Bash
-echo $variable  # Output to the terminal: value
+echo ${variable}  # Output to the terminal: value
 ```
 
 Conditionals use the following syntax (ensure that the spacing for square brackets is also as shown):
@@ -267,10 +328,9 @@ fi
 
 For numbers, Bash has the usual comparison operators: `-eq`, `-ne`, `-le`, `-lt`, `-ge`, `-gt`, `-z`.
 For strings, the comparison operators are: `==`, `!=`. The logical operators are: `&&`, `||`, `!`.
-For string comparisons, it is best practice to use double quotation marks to prevent errors in the case of spaces or null values.
 
 ```Bash
-if [ "$word1" == "$word2" ]  # Check if the two strings are equal
+if [ "${word1}" == "${word2}" ]  # Check if the two strings are equal
 ```
 
 Note that arithmetic in bash scripting uses the following syntax:
@@ -282,7 +342,7 @@ variable=$((variable + 7))
 There are three different loops: `for`, `while` and `until`.
 
 ```Bash
-for word in $paragraph
+for word in ${paragraph}
 do
     statement
 done
@@ -314,10 +374,10 @@ read -p "Enter your age: " number  # Flag option to specify prompt text
 The second is by calling the script with input arguments.
 
 ```Bash
-script.sh arg1 arg2 arg3
-# The above arguments can be referenced positionally in the script
+# The following arguments can be referenced positionally in the script
 # by using $1, $2, $3.  For any number of input arguments to be
 # allowed, use $@.
+script.sh arg1 arg2 arg3
 ```
 
 The third way is by accessing external files.
