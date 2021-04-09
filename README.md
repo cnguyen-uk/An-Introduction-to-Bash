@@ -55,7 +55,7 @@ x=$((x + 7))  # Compensates for border
 
 #### Block Comments
 
-Block comments should be written in complete sentences, be indented with the code which it is commenting, and come *before* the code which it is commenting. Placing the comment after is merciless on a confused reader. Paragraphs are separated by a single line containing a single #, and multi-sentence comments should have two spaces after a sentence-ending period (except after the final sentence).
+Block comments should be written in complete sentences, be indented with the code which it is commenting, and come *before* the code which it is commenting. Placing the comment after is merciless on a confused reader. Paragraphs are separated by a single line containing a single `#`, and multi-sentence comments should have two spaces after a sentence-ending period (except after the final sentence).
 
 ```Bash
 # This script is called with an integer argument.  It does not check for valid input.
